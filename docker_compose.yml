@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app:
     build: .
-    container_name: devops-data
+    container_name: proyect-devops
     volumes:
       - ./app:/app
     command: python main.py
