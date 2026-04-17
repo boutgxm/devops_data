@@ -3,16 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Instalando Docker...
-      - apt-get update
-      - apt-get install -y docker.io docker-compose
+      - echo "Instalando dependencias..."
 
   build:
     commands:
-      - echo Ejecutando Docker Compose...
-      - docker-compose up --build
+      - echo "Construyendo imagen Docker..."
+      - docker build -t devops-data .
+
+  post_build:
+    commands:
+      - echo "Ejecutando contenedor..."
+      - docker run devops-data
 
 artifacts:
   files:
-    - app/resultado.csv
-    - app/log.txt
+    - '**/*'
