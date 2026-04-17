@@ -8,12 +8,13 @@ phases:
   build:
     commands:
       - echo "Construyendo imagen Docker..."
-      - docker build -t devops-data .
+      - docker build -t flask-app ./app
 
   post_build:
     commands:
       - echo "Ejecutando contenedor..."
-      - docker run devops-data
+      - chmod +x deploy.sh #se vuelva ejecutable
+      - ./deploy.sh
 
 artifacts:
   files:
