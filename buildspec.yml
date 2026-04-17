@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Instalando Docker...
+      - apt-get update
+      - apt-get install -y docker.io docker-compose
+
+  build:
+    commands:
+      - echo Ejecutando Docker Compose...
+      - docker-compose up --build
+
+artifacts:
+  files:
+    - app/resultado.csv
+    - app/log.txt
