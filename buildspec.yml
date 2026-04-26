@@ -3,17 +3,17 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Instalando dependencias..."
+      - echo "Instalando..."
 
   build:
     commands:
-      - echo "Construyendo imagen Docker..."
-      - docker build -t flask-app ./app
+      - echo "Ejecutando script..."
+      - python main.py
 
   post_build:
     commands:
-      - echo "Ejecutando contenedor..."
-      - chmod +x deploy.sh #se vuelva ejecutable
+      - echo "Running deploy script"
+      - chmod +x deploy.sh
       - ./deploy.sh
 
 artifacts:
